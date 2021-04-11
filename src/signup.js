@@ -11,6 +11,8 @@ const Signup = props =>
         password:'',
     });
     let [ redirect, setRedirect ] = useState(false);
+    let [loading, setLoading] = useState(false);
+    let [ message, setMessage ] = useState();
 
     let emailRef = createRef();
     let passwordRef = createRef();
@@ -20,6 +22,8 @@ const Signup = props =>
         let emailvalue = emailRef.current.value;
         let passwordvalue = passwordRef.current.value;
 
+        // loading
+        setLoading(true);
         fetch(`${url}/signup`, {
             method: 'POST',
             headers: {
@@ -31,7 +35,13 @@ const Signup = props =>
             console.log(data);
             setUser(data);
             setRedirect(true);
+            setLoading(false);
             localStorage.setItem('user', data);
+
+        }).catch(function(error) {
+            console.log('There has been a problem with your fetch operation: ', 
+            error.message);
+            setMessage(message);
         });
         
     }
@@ -46,9 +56,10 @@ const Signup = props =>
                 <div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
                 <div class="max-w-md w-full space-y-8">
                     
-                    
-                    <input type="hidden" name="remember" value="true" />
+                <span>{message}</span>
+                {loading ? <span class="text-gray-300 animate-pulse">Loading...</span> : ''}
                     <div class="rounded-md shadow-sm -space-y-px">
+                        
                         <div>
                         <label for="email-address" class="sr-only">Email address</label>
                         <input   type="email" ref={emailRef}   class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Email address" />

@@ -7,8 +7,18 @@ import { url } from "./baseUrl.js";
 const Item = props => {
   return (
     <>
-      <div class="py-6 bg-gray-500 flex justify-center font-bold text-2xl rounded">
+      <div class="py-6 bg-gray-300 flex justify-center font-bold text-gray-600 text-2xl rounded">
         {props.name}
+      </div>
+    </>
+  )
+}
+const Error = () => {
+  return (
+    <>
+      <div class="flex justify-between bg-red-100 items-center py-3 px-2 rounded">
+        <span class="text-red-500 font-bold"> You have to sign in first </span>
+        
       </div>
     </>
   )
@@ -35,8 +45,10 @@ const Home = props =>
 
       if (user === null) {
         setShow(true);
-        return;
+        console.log('user')
+        return ;
       }
+      console.log(user.token)
       fetch(`${url}/process`, {
             method: 'POST',
             headers: {
@@ -59,7 +71,7 @@ const Home = props =>
         <div class="max-w-3xl mx-auto space-x-4">
 
             <div class="py-6">
-              {show ? <span class="text-red-500 font-bold w-full"> You have to sign in first </span> : ''}
+              {show ? <Error   /> : ''}
             </div>
             <div class="flex justify-center space-x-3">
               <button onClick={fetchData} type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
