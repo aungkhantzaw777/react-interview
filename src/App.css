@@ -28,6 +28,24 @@
   color: #61dafb;
 }
 
+.nav{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px gray;
+  padding: 20px;
+  background-color: #282c34;
+  color: white;
+}
+.login-wrap {
+  display: flex;
+  
+  
+}
+.login-wrap div {
+  padding: 5px 5px;
+}
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

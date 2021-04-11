@@ -1,0 +1,7 @@
+POST https://dev.svested.com/interview/api/signup HTTP/1.1
+content-type: application/json
+
+{
+    "example": "user@gmail.com",
+    "password": "password"
+}
