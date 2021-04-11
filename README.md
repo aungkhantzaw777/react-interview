@@ -1,4 +1,10 @@
-
+### My Code Overview
+I split baseUrl by another file named baseUrl.js. so it changable. I make sure to finish task 2 and 3. because I apply for front end developer position. 
+the library that I use in this project is below
+- tailwindcss for ui
+- react dom router for switch pages
+- postCss for changing theme
+- craco for PostCss configuration
 
 ### `npm run start`
 
@@ -19,10 +25,4 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### My Code Overview
-I split baseUrl by another file named baseUrl.js. so it changable. I make sure to finish task 2 and 3. because I apply for front end developer position. 
-the library that I use in this project is below
-- tailwindcss for ui
-- react dom router for switch pages
-- postCss for changing theme
-- craco for PostCss configuration
+
